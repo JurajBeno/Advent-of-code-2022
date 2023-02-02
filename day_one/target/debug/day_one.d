@@ -1,1 +1,0 @@
-C:\Users\juraj\OneDrive\Počítač\Rust\ implementations\advent_of_code_2022\day_one\target\debug\day_one.exe: C:\Users\juraj\OneDrive\Počítač\Rust\ implementations\advent_of_code_2022\day_one\src\main.rs
