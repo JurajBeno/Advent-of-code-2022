@@ -35,7 +35,7 @@ fn calculate_camp_assigments(mut num_stacks: i32) -> String {
         } else if line.as_ref().unwrap().chars().nth(0).unwrap() == 'm' {
             let chars = line.as_ref().unwrap().chars();
             let nums = get_nums_from_chars(chars);
-            stacks = move_crates(*nums.get(0).unwrap(),
+            stacks = move_crates((*nums.get(0).unwrap()).try_into().unwrap(),
                            (*nums.get(1).unwrap()).try_into().unwrap(),
                              (*nums.get(2).unwrap()).try_into().unwrap(),
                                  stacks.clone());
@@ -74,12 +74,11 @@ fn get_nums_from_chars(chars: Chars) -> Vec<i32> {
     res
 }
 
-fn move_crates(mut quantity: i32, from: usize, to: usize, mut stacks: Vec<Stack>) -> Vec<Stack> {
-    while quantity > 0 {
-        let crate_ = stacks.get_mut(from - 1).unwrap().crates.pop().unwrap();
-        stacks.get_mut(to - 1).unwrap().crates.push(crate_);
-        quantity -= 1;
-    }
+fn move_crates(quantity: usize, from: usize, to: usize, mut stacks: Vec<Stack>) -> Vec<Stack> {
+    let leng = stacks.get(from - 1).unwrap().crates.len();
+    let crate_ = stacks.get_mut(from - 1).unwrap().crates.split_off(leng - quantity);
+    stacks.get_mut(to - 1).unwrap().crates.extend(crate_);
+        
     stacks
 }
 
