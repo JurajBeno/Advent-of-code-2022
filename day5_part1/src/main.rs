@@ -35,9 +35,9 @@ fn calculate_camp_assigments(mut num_stacks: i32) -> String {
             let chars = line.as_ref().unwrap().chars();
             let nums = get_nums_from_chars(chars);
             stacks = move_crates(*nums.get(0).unwrap(),
-                                           (*nums.get(1).unwrap()).try_into().unwrap(),
-                                             (*nums.get(2).unwrap()).try_into().unwrap(),
-                                                 stacks.clone());
+                           (*nums.get(1).unwrap()).try_into().unwrap(),
+                             (*nums.get(2).unwrap()).try_into().unwrap(),
+                                 stacks.clone());
         } else {
             for cha in line.unwrap().chars() {
                 if cha != '[' && cha != ']' && cha != ' ' && !cha.is_digit(RADIX) {
