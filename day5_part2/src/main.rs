@@ -17,7 +17,7 @@ struct Stack {
     crates: Vec<char>
 }
 
-//TODO extract some parts into separate functs
+//TODO extract some parts into separate functs, get rid of struct mb?
 fn calculate_camp_assigments(mut num_stacks: i32) -> String {
     let lines = read_lines("./input_data".to_string());
     let mut stacks: Vec<Stack> = vec![];
